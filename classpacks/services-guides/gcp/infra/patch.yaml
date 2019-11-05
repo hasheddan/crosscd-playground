@@ -21,7 +21,7 @@ metadata:
   name: cloudsqlinstancemysql
 specTemplate:
   forProvider:
-    region: us-west2
+    region: us-central
     settings:
       tier: db-n1-standard-1
       dataDiskSizeGb: 20
