@@ -26,5 +26,4 @@ specTemplate:
       tier: db-n1-standard-1
       dataDiskSizeGb: 20
       ipConfiguration:
-        ipv4Enabled: false
         privateNetwork: projects/crossplane-playground/global/networks/argo
