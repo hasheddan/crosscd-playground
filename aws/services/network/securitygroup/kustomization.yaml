@@ -1,4 +1,4 @@
 commonLabels:
-  provider: gcp
+  provider: aws
 resources:
 - resource.yaml

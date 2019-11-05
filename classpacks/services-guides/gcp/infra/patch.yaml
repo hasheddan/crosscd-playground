@@ -1,7 +1,7 @@
 apiVersion: compute.gcp.crossplane.io/v1alpha3
 kind: GlobalAddress
 metadata:
-  name: globaladdress
+  name: sample-globaladdress
 spec:
   name: wordpress-globaladdress
   network: projects/crossplane-playground/global/networks/argo
@@ -9,7 +9,7 @@ spec:
 apiVersion: servicenetworking.gcp.crossplane.io/v1alpha3
 kind: Connection
 metadata:
-  name: connection
+  name: sample-connection
 spec:
   network: projects/crossplane-playground/global/networks/argo
   reservedPeeringRangeRefs:
@@ -21,7 +21,7 @@ metadata:
   name: cloudsqlinstancemysql
 specTemplate:
   forProvider:
-    region: us-central1
+    region: us-west2
     settings:
       tier: db-n1-standard-1
       dataDiskSizeGb: 20

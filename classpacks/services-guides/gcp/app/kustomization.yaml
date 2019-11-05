@@ -1,0 +1,5 @@
+namePrefix: wordpress-
+commonLabels:
+  app: wordpress
+bases:
+- ../../../../apps/wordpress

@@ -1,0 +1,12 @@
+apiVersion: identity.aws.crossplane.io/v1alpha3
+kind: IAMRolePolicyAttachment
+metadata:
+  name: sample-role-servicepolicy
+spec:
+  roleNameRef:
+    name: sample-eks-cluster-role
+  # wellknown policy arn
+  policyArn: arn:aws:iam::aws:policy/AmazonEKSServicePolicy
+  reclaimPolicy: Delete
+  providerRef:
+    name: aws-provide

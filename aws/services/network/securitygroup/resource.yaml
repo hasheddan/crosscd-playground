@@ -3,8 +3,9 @@ kind: SecurityGroup
 metadata:
   name: sample-rds-sg
 spec:
-  vpcId: ${VPC_ID}
-  groupName: sample-rds-sg
+  vpcIdRef:
+    name: sample-vpc
+  groupName: my-cool-rds-sg
   description: open rds access to crossplane workload
   reclaimPolicy: Delete
   ingress:

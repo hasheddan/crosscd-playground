@@ -1,0 +1,23 @@
+---
+apiVersion: database.gcp.crossplane.io/v1beta1
+kind: CloudSQLInstanceClass
+metadata:
+  name: standard-cloudsql
+  labels:
+    size: standard
+specTemplate:
+  writeConnectionSecretsToNamespace: crossplane-system
+  forProvider:
+    databaseVersion: MYSQL_5_7
+    region: us-central1
+    settings:
+      tier: db-n1-standard-1
+      dataDiskType: PD_SSD
+      dataDiskSizeGb: 10
+      # Note from GCP Docs: Your Cloud SQL instances are not created in your VPC network.
+      # They are created in the service producer network (a VPC network internal to Google) that is then connected (peered) to your VPC network.
+      ipConfiguration:
+        privateNetwork: projects/crossplane-playground/global/networks/argo
+  providerRef:
+    name: gcp-provider
+  reclaimPolicy: Delete

@@ -3,15 +3,15 @@ kind: DBSubnetGroup
 metadata:
   name: sample-dbsubnetgroup
 spec:
-  groupName: sample_dbsubnetgroup
+  groupName: my-cool-dbsubnetgroup
   description: EKS vpc to rds
-  subnetIds:
-    - ${SUBNET_ONE_ID}
-    - ${SUBNET_TWO_ID}
-    - ${SUBNET_THREE_ID}
+  subnetIdRefs:
+    - name: sample-subnet1
+    - name: sample-subnet2
+    - name: sample-subnet3
   tags:
     - key: name
-      value: sample-dbsubnetgroup
+      value: my-cool-dbsubnetgroup
   reclaimPolicy: Delete
   providerRef:
     name: aws-provider
