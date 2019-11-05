@@ -4,8 +4,6 @@ metadata:
   name: sample-connection
 spec:
   parent: services/servicenetworking.googleapis.com
-  networkRef:
-    name: sample-network
   reservedPeeringRangeRefs:
     - name: sample-globaladdress
   reclaimPolicy: Delete

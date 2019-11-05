@@ -13,7 +13,7 @@ metadata:
 spec:
   network: projects/crossplane-playground/global/networks/argo
   reservedPeeringRangeRefs:
-  - name: wordpress-globaladdress
+  - name: wordpress-sample-globaladdress
 ---
 apiVersion: database.gcp.crossplane.io/v1beta1
 kind: CloudSQLInstanceClass

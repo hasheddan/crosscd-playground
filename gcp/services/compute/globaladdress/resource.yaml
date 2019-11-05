@@ -7,8 +7,6 @@ spec:
   purpose: VPC_PEERING
   addressType: INTERNAL
   prefixLength: 16
-  networkRef:
-    name: sample-network
   reclaimPolicy: Delete
   providerRef:
     name: gcp-provider
