@@ -1,0 +1,28 @@
+apiVersion: compute.gcp.crossplane.io/v1alpha3
+kind: GlobalAddress
+metadata:
+  name: example-globaladdress
+spec:
+  providerRef:
+    name: gcp-provider
+  reclaimPolicy: Delete
+  name: example-globaladdress
+  purpose: VPC_PEERING
+  addressType: INTERNAL
+  prefixLength: 16
+  network: projects/crossplane-playground/global/networks/argo-testing
+---
+# example-connection is what allows cloud services to use the allocated GlobalAddress for communication. Behind
+# the scenes, it creates a VPC peering to the network that those service instances actually live.
+apiVersion: servicenetworking.gcp.crossplane.io/v1alpha3
+kind: Connection
+metadata:
+  name: example-connection
+spec:
+  providerRef:
+    name: gcp-provider
+  reclaimPolicy: Delete
+  parent: services/servicenetworking.googleapis.com
+  network: projects/crossplane-playground/global/networks/argo-testing
+  reservedPeeringRangeRefs:
+    - name: example-globaladdress

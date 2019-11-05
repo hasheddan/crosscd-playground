@@ -1,0 +1,17 @@
+apiVersion: database.aws.crossplane.io/v1alpha3
+kind: DBSubnetGroup
+metadata:
+  name: sample-dbsubnetgroup
+spec:
+  groupName: sample_dbsubnetgroup
+  description: EKS vpc to rds
+  subnetIds:
+    - ${SUBNET_ONE_ID}
+    - ${SUBNET_TWO_ID}
+    - ${SUBNET_THREE_ID}
+  tags:
+    - key: name
+      value: sample-dbsubnetgroup
+  reclaimPolicy: Delete
+  providerRef:
+    name: aws-provider
