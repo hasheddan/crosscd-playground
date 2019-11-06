@@ -1,0 +1,5 @@
+resources:
+- connection.yaml
+- global-address.yaml
+- network.yaml
+- subnetwork.yaml
